@@ -1,1122 +1,1429 @@
-/* 기본 스타일 초기화 */
-* {
+/* ===== Modern Index Page CSS ===== */
+:root {
+    /* Bright & Light Color Palette */
+    --primary-color: #60a5fa;      /* blue-400 - 밝은 블루 */
+    --primary-dark: #3b82f6;       /* blue-500 - 약간 진한 블루 */
+    --accent-color: #a78bfa;       /* violet-400 - 밝은 바이올렛 */
+    --success-color: #34d399;      /* emerald-400 - 밝은 에메랄드 */
+    --danger-color: #f87171;       /* red-400 - 밝은 레드 */
+    --warning-color: #fbbf24;      /* amber-400 - 밝은 앰버 */
+    
+    /* Light Text Colors */
+    --text-primary: #1f2937;       /* gray-800 - 덜 어두운 메인 텍스트 */
+    --text-secondary: #4b5563;     /* gray-600 - 밝은 세컨더리 텍스트 */
+    --text-muted: #9ca3af;         /* gray-400 - 밝은 뮤트 텍스트 */
+    --text-light: #d1d5db;         /* gray-300 - 매우 밝은 텍스트 */
+    
+    /* Bright Background Colors */
+    --bg-primary: #ffffff;         /* 순백색 유지 */
+    --bg-secondary: #fefcf8;       /* 따뜻한 아이보리 화이트 */
+    --bg-tertiary: #fef3e2;        /* 매우 밝은 오렌지 틴트 */
+    --bg-accent: #f0f9ff;          /* 밝은 스카이 블루 */
+    
+    /* Light Border Colors */
+    --border-light: #fecaca;        /* red-200 - 밝은 핑크 보더 */
+    --border-medium: #fed7aa;       /* orange-200 - 밝은 오렌지 보더 */
+    --border-dark: #fde68a;         /* yellow-200 - 밝은 옐로우 보더 */
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Modern Spacing */
+    --space-xs: 0.25rem;    /* 4px */
+    --space-sm: 0.5rem;     /* 8px */
+    --space-base: 1rem;     /* 16px */
+    --space-lg: 1.5rem;     /* 24px */
+    --space-xl: 2rem;       /* 32px */
+    --space-2xl: 3rem;      /* 48px */
+    --space-3xl: 4rem;      /* 64px */
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;  /* 6px */
+    --radius-base: 0.5rem;  /* 8px */
+    --radius-lg: 0.75rem;   /* 12px */
+    --radius-xl: 1rem;      /* 16px */
+    --radius-2xl: 1.5rem;   /* 24px */
+    --radius-full: 9999px;
+    
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* 브레드크럼 네비게이션 */
-.breadcrumb {
-    background: #f8f9fa;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    border-radius: 6px;
-    font-size: 0.9rem;
-}
-
-.breadcrumb a {
-    color: #667eea;
-    text-decoration: none;
-}
-
-.breadcrumb a:hover {
-    text-decoration: underline;
-}
-
-.breadcrumb span {
-    color: #6c757d;
-    font-weight: 500;
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, #fef7cd 0%, #fce4ec 50%, #e1f5fe 100%);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
+/* ===== Container ===== */
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 var(--space-lg);
 }
 
-/* 네비게이션 */
-.navbar {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 15px 0;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-logo {
+/* ===== Modern Header ===== */
+.header {
+    background: linear-gradient(135deg, #fde047 0%, #fb7185 50%, #a855f7 100%);
     color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
+    padding: var(--space-3xl) var(--space-xl);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--space-2xl);
+    border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+    box-shadow: 0 20px 40px rgba(253, 224, 71, 0.3);
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    transition: background-color 0.3s;
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    opacity: 0.3;
 }
 
-.nav-links a:hover {
-    background-color: rgba(255,255,255,0.2);
+.header h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: var(--space-base);
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* 메인 컨텐츠 */
-.main-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* 검색 및 필터 섹션 */
-.search-filter-section {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    border: 1px solid #e9ecef;
-}
-
-.search-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.search-box {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.search-box input {
-    flex: 1;
-    padding: 12px 16px;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.search-box input:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-.search-box button {
-    padding: 12px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.search-box button:hover {
-    transform: translateY(-2px);
-}
-
-.filter-container {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.filter-container select {
-    padding: 10px 15px;
-    border: 2px solid #e9ecef;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    background: white;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
-}
-
-.filter-container select:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-.filter-container button {
-    padding: 10px 20px;
-    background: #6c757d;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.filter-container button:hover {
-    background: #5a6268;
-}
-
-/* 페이지네이션 */
-.pagination-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-    padding: 20px 0;
-}
-
-.pagination-info {
-    color: #6c757d;
-    font-size: 0.9rem;
+.header p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
     font-weight: 500;
 }
 
-.pagination {
-    display: flex;
-    gap: 5px;
-    align-items: center;
+/* ===== Breadcrumb ===== */
+.breadcrumb {
+    background: var(--bg-primary);
+    padding: var(--space-base) var(--space-lg);
+    margin-bottom: var(--space-xl);
+    border-radius: var(--radius-lg);
+    font-size: 0.875rem;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    font-weight: 500;
 }
 
-.pagination button {
-    padding: 8px 12px;
-    border: 1px solid #dee2e6;
-    background: white;
-    color: #495057;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.breadcrumb a:hover {
+    color: var(--primary-dark);
+}
+
+.breadcrumb span {
+    color: var(--text-muted);
+}
+
+/* ===== Statistics Section ===== */
+.summary {
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.summary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.summary h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.stat-item {
+    background: linear-gradient(135deg, #fef3c7 0%, #fed7d7 50%, #e0e7ff 100%);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 0 10px 25px rgba(254, 243, 199, 0.4);
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #fde047, #fb7185);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    z-index: -1;
+}
+
+.stat-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(253, 224, 71, 0.5);
+    border-color: var(--primary-color);
+}
+
+.stat-item:hover::before {
+    opacity: 0.1;
+}
+
+.stat-value {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 900;
+    color: var(--primary-color);
+    margin-bottom: var(--space-sm);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== Main Content Area ===== */
+.apartment-list {
+    margin-top: var(--space-2xl);
+}
+
+.apartment-list h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: var(--space-base);
+    text-align: center;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.apartment-list h3 {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    font-weight: 500;
+}
+
+/* ===== Modern Table Design ===== */
+.apt-table-wrapper {
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
+    margin-bottom: var(--space-2xl);
+}
+
+.apt-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.apt-table thead th {
+    background: linear-gradient(135deg, #fde047, #fb7185);
+    color: white;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-align: left;
+    padding: var(--space-lg) var(--space-base);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.apt-table thead th:first-child {
+    border-top-left-radius: var(--radius-xl);
+}
+
+.apt-table thead th:last-child {
+    border-top-right-radius: var(--radius-xl);
+}
+
+.apt-table tbody td {
+    padding: var(--space-lg) var(--space-base);
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.apt-table tbody tr {
+    transition: all var(--transition-fast);
+}
+
+.apt-table tbody tr:hover {
+    background: linear-gradient(135deg, #fef3c7 0%, #fce4ec 100%);
+    transform: scale(1.005);
+    box-shadow: 0 4px 12px rgba(254, 243, 199, 0.6);
+}
+
+.apt-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: var(--radius-xl);
+}
+
+.apt-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: var(--radius-xl);
+}
+
+/* Column Specific Styles */
+.apt-table .col-rank {
+    width: 80px;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-align: center;
+    background: linear-gradient(135deg, #fef3c7 0%, #fce4ec 100%);
+    border-right: 2px solid #fed7aa;
+}
+
+.apt-table .col-name {
+    font-weight: 700;
+    min-width: 200px;
+}
+
+.apt-table .col-name a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    font-weight: 700;
+}
+
+.apt-table .col-name a:hover {
+    color: var(--primary-color);
+}
+
+.apt-table .col-price {
+    font-weight: 800;
+    color: var(--success-color);
+    text-align: right;
+    min-width: 120px;
+}
+
+.apt-table .col-region {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.apt-table .col-count {
+    color: var(--accent-color);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    padding: var(--space-2xl);
+    margin-top: var(--space-3xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
+    border-bottom: none;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: var(--space-sm) var(--space-base);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+}
+
+.footer-link:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.footer-info {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    line-height: 1.7;
+}
+
+.footer-info p {
+    margin-bottom: var(--space-sm);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 var(--space-base);
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: var(--space-base);
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: var(--space-2xl) var(--space-base);
+        border-radius: 0;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-base);
+    }
+    
+    .stat-item {
+        padding: var(--space-lg);
+    }
+    
+    .apt-table-wrapper {
+        overflow-x: auto;
+        border-radius: var(--radius-lg);
+    }
+    
+    .apt-table {
+        min-width: 600px;
+    }
+    
+    .apt-table thead th,
+    .apt-table tbody td {
+        padding: var(--space-base) var(--space-sm);
+        font-size: 0.8125rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-base);
+    }
+    
+    .apt-table {
+        min-width: 500px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .summary h2 {
+        font-size: 1.5rem;
+    }
+    
+    .apartment-list h2 {
+        font-size: 1.75rem;
+    }
+}
+
+/* ===== Detail Page Styles (유지) ===== */
+
+/* Apartment Cards for Detail Pages */
+.apartment-grid, .apt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.apt-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-base);
+    border: 1px solid var(--border-light);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    overflow: hidden;
+}
+
+.apt-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+}
+
+.apt-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+
+.apt-header {
+    padding: var(--space-lg) var(--space-lg) var(--space-base) var(--space-lg);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.apt-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+    line-height: 1.4;
+}
+
+.apt-location {
     font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: var(--space-base);
 }
 
-.pagination button:hover:not(:disabled) {
-    background: #667eea;
-    color: white;
-    border-color: #667eea;
+.apt-details {
+    padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
 }
 
-.pagination button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+.apt-price {
+    font-size: 1.65rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    letter-spacing: -0.2px;
 }
 
-.pagination button.active {
-    background: #667eea;
-    color: white;
-    border-color: #667eea;
-}
-
-#pageNumbers {
+.apt-info {
     display: flex;
-    gap: 5px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
 }
 
-/* Intro 섹션 */
-.intro-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 30px;
-    border-left: 4px solid #667eea;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+.apt-transactions {
+    font-weight: 600;
+    color: var(--success-color);
 }
 
-.intro-content {
-    max-width: 100%;
+.apt-date {
+    color: var(--text-muted);
 }
 
-.intro-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #495057;
-    text-align: justify;
+.apt-detail {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.apt-latest {
+    padding: var(--space-base) var(--space-lg);
+    background: var(--bg-secondary);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-light);
+    margin-top: auto;
+}
+
+/* Apartment Detail Header */
+.apartment-header, .main-header {
+    background: linear-gradient(135deg, #e0e7ff 0%, #ede9fe 100%);
+    color: var(--text-primary);
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-2xl);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.apartment-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.apartment-title, .main-header h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: var(--space-base);
+    text-shadow: none;
+    position: relative;
+    z-index: 1;
+}
+
+.apartment-location, .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    opacity: 0.95;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.location, .build-year, .info-item {
+    background: rgba(255, 255, 255, 0.25);
+    padding: var(--space-sm) var(--space-base);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: var(--transition-base);
+}
+
+.location:hover, .build-year:hover, .info-item:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* Detail Page Sections */
+.apartment-intro, .transaction-section, .related-apartments,
+.market-analysis, .area-analysis, .neighborhood-comparison, .faq-section,
+.investment-guide, .chart-section {
+    background: var(--bg-primary);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-xl);
+    border: 1px solid var(--border-light);
+    transition: var(--transition-base);
+}
+
+.apartment-intro:hover, .transaction-section:hover, .related-apartments:hover,
+.market-analysis:hover, .area-analysis:hover, .neighborhood-comparison:hover, 
+.faq-section:hover, .investment-guide:hover, .chart-section:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* Transaction Table */
+.transaction-table {
+    margin-top: var(--space-lg);
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.transaction-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.transaction-table th {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: var(--space-lg) var(--space-base);
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.transaction-table th::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.transaction-table th:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--accent-color));
+}
+
+.transaction-table td {
+    padding: var(--space-base);
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.875rem;
+    transition: var(--transition-fast);
+}
+
+.transaction-table tr:hover {
+    background: var(--bg-secondary);
+    transform: scale(1.01);
+}
+
+.transaction-table .price {
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--danger-color), #c53030);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Area Analysis */
+.area-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.area-item {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--success-color);
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.area-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(56, 161, 105, 0.1) 0%, transparent 70%);
+    border-radius: 0 var(--radius-lg) 0 80px;
+}
+
+.area-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.area-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-base);
+}
+
+.area-header h3 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
     margin: 0;
 }
 
-/* 관련 아파트 링크 */
-.related-apartments {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    border: 1px solid #e9ecef;
-}
-
-.related-apartments h3 {
-    color: #495057;
-    margin-bottom: 20px;
-    font-size: 1.3rem;
+.area-count {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: var(--space-sm) var(--space-base);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
+.area-price {
+    text-align: center;
+}
+
+.avg-price {
+    font-size: 1.75rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--danger-color), #c53030);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-sm);
+}
+
+.price-range {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Filter Controls for Detail Pages */
+.area-filter {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--primary-color);
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-base);
+}
+
+.filter-btn {
+    padding: var(--space-sm) var(--space-base);
+    border: 2px solid var(--primary-color);
+    background: var(--bg-primary);
+    color: var(--primary-color);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: var(--transition-base);
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 50%;
+    transition: var(--transition-base);
+    transform: translate(-50%, -50%);
+}
+
+.filter-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.filter-btn.active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Related Links */
 .related-links {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px;
+    gap: var(--space-base);
+    margin-top: var(--space-lg);
 }
 
 .related-link {
     display: flex;
     align-items: center;
-    padding: 15px 20px;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 8px;
+    padding: var(--space-base) var(--space-lg);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    border-radius: var(--radius-lg);
     text-decoration: none;
-    color: #495057;
-    transition: all 0.3s ease;
-    border: 1px solid #dee2e6;
+    color: var(--text-secondary);
+    transition: var(--transition-base);
+    border: 1px solid var(--border-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.related-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    transition: var(--transition-base);
+    z-index: -1;
+}
+
+.related-link:hover::before {
+    left: 0;
 }
 
 .related-link:hover {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
 }
 
 .link-icon {
-    font-size: 1.2rem;
-    margin-right: 12px;
+    font-size: 1.5rem;
+    margin-right: var(--space-base);
     flex-shrink: 0;
 }
 
 .link-text {
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.4;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.5;
 }
 
 .no-related-apartments {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px 20px;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 8px;
-    color: #6c757d;
-    border: 1px solid #dee2e6;
+    padding: var(--space-2xl) var(--space-lg);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    border-radius: var(--radius-lg);
+    color: var(--text-muted);
+    border: 2px dashed var(--border-medium);
 }
 
 .no-apartments-icon {
-    font-size: 1.5rem;
-    margin-right: 12px;
+    font-size: 2rem;
+    margin-right: var(--space-base);
+    opacity: 0.7;
 }
 
 .no-apartments-text {
     font-size: 1rem;
-    font-weight: 500;
-}
-
-/* 아파트 헤더 */
-.apartment-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 40px 30px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.apartment-title {
-    font-size: 2.8rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.apartment-location {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.location, .build-year {
-    background: rgba(255,255,255,0.15);
-    padding: 8px 16px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-}
-
-/* 요약 통계 */
-.summary-stats {
-    margin-bottom: 40px;
-}
-
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.stat-card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-    text-align: center;
-    border-left: 4px solid #667eea;
-    transition: transform 0.2s;
-}
-
-.stat-card:hover {
-    transform: translateY(-3px);
-}
-
-.stat-card h3 {
-    font-size: 0.9rem;
-    color: #718096;
-    margin-bottom: 10px;
     font-weight: 600;
 }
 
-.stat-value {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #2d3748;
-    margin: 0;
+/* NEIGHBORHOOD COMPARISON */
+section.neighborhood-comparison {
+    background: var(--bg-primary) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-xl) !important;
+    margin-bottom: var(--space-xl) !important;
+    box-shadow: var(--shadow-md) !important;
+    border: 1px solid var(--border-light) !important;
+    transition: var(--transition-base) !important;
 }
 
-.stat-value.primary {
-    color: #e74c3c;
-    font-size: 2.2rem;
+section.neighborhood-comparison:hover {
+    box-shadow: var(--shadow-lg) !important;
+    transform: translateY(-2px) !important;
 }
 
-/* 분석 섹션 */
-.analysis-section, .trend-section, .transaction-section {
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+section.neighborhood-comparison h2 {
+    color: var(--text-primary) !important;
+    font-size: clamp(1.5rem, 3vw, 2rem) !important;
+    margin-bottom: var(--space-lg) !important;
+    padding-bottom: var(--space-base) !important;
+    border-bottom: 3px solid var(--primary-color) !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 700 !important;
 }
 
-.analysis-section h2, .trend-section h2, .transaction-section h2 {
-    font-size: 1.8rem;
-    color: #2d3748;
-    margin-bottom: 25px;
-    border-bottom: 3px solid #667eea;
-    padding-bottom: 10px;
+.comparison-content {
+    margin-top: var(--space-lg) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-lg) !important;
 }
 
-/* 평형별 분석 */
-.area-analysis {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.current-apartment-rank {
+    background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%) !important;
+    padding: var(--space-xl) !important;
+    border-radius: var(--radius-lg) !important;
+    margin-bottom: var(--space-xl) !important;
+    border-left: 4px solid var(--primary-color) !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 
-.area-group {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 4px solid #38a169;
+.current-apartment-rank h3 {
+    color: var(--text-primary) !important;
+    font-size: 1.3rem !important;
+    margin-bottom: var(--space-base) !important;
+    font-weight: 700 !important;
 }
 
-.area-group h3 {
-    color: #2d3748;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
+.rank-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-base) !important;
+    flex-wrap: wrap !important;
 }
 
-.area-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.rank-number {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    padding: var(--space-sm) var(--space-base) !important;
+    border-radius: var(--radius-lg) !important;
+    border: 2px solid var(--primary-color) !important;
+    background-color: var(--bg-primary) !important;
+    display: inline-block !important;
 }
 
-.area-stats .stat {
-    color: #4a5568;
-    font-size: 0.9rem;
-    padding: 5px 0;
+.rank-out-of {
+    color: var(--text-muted) !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
 }
 
-/* 차트 섹션 */
-.chart-section {
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+.current-apartment-rank .price-per-sqm {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important;
+    color: white !important;
+    padding: var(--space-sm) var(--space-base) !important;
+    border-radius: var(--radius-full) !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    box-shadow: var(--shadow-md) !important;
 }
 
-.chart-section h3 {
-    font-size: 1.4rem;
-    color: #2d3748;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #667eea;
-    padding-bottom: 10px;
+.neighborhood-ranking h3 {
+    color: var(--text-primary) !important;
+    font-size: 1.4rem !important;
+    margin-bottom: var(--space-lg) !important;
+    font-weight: 700 !important;
 }
 
-.chart-container {
-    position: relative;
-    height: 400px;
-    margin-top: 20px;
+.ranking-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-base) !important;
 }
 
-.chart-container canvas {
-    max-width: 100%;
-    height: 100%;
+.ranking-item {
+    display: flex !important;
+    align-items: center !important;
+    padding: var(--space-base) var(--space-lg) !important;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%) !important;
+    border-radius: var(--radius-lg) !important;
+    border-left: 4px solid var(--success-color) !important;
+    transition: var(--transition-base) !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 
-/* 전용면적 필터 */
-.area-filter {
-    margin-bottom: 25px;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 4px solid #667eea;
+.ranking-item:hover {
+    transform: translateX(8px) !important;
+    box-shadow: var(--shadow-md) !important;
 }
 
-.filter-label {
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #2d3748;
-    font-size: 1rem;
-}
-
-.filter-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.filter-btn {
-    padding: 8px 16px;
-    border: 2px solid #667eea;
-    background: white;
-    color: #667eea;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.filter-btn:hover {
-    background: #667eea;
-    color: white;
-    transform: translateY(-1px);
-}
-
-.filter-btn.active {
-    background: #667eea;
-    color: white;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-}
-
-.filter-result {
-    font-size: 14px;
-    color: #718096;
-    font-style: italic;
-    margin-top: 10px;
-}
-
-/* 거래내역 테이블 */
-.transaction-table {
-    margin-top: 20px;
-    overflow-x: auto;
-}
-
-.transaction-table h3 {
-    color: #2d3748;
-    margin-bottom: 25px;
-    font-size: 1.4rem;
-}
-
-.transaction-table table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.transaction-table th {
-    background: #667eea;
-    color: white;
-    padding: 15px 12px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    user-select: none;
-}
-
-.transaction-table th:hover {
-    background: #5a6fd8;
-}
-
-.transaction-table td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #e2e8f0;
-    font-size: 0.9rem;
-}
-
-.transaction-table tr:hover {
-    background-color: #f8f9fa;
-}
-
-.transaction-table .price {
-    font-weight: bold;
-    color: #e74c3c;
-}
-
-/* 푸터 */
-.footer {
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    text-align: center;
-    margin-top: 40px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-}
-
-.footer-content p {
-    color: #718096;
-    margin-bottom: 10px;
-}
-
-.update-info {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-/* 인덱스 페이지 전용 스타일 */
-.main-header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-radius: 12px;
-}
-
-.main-header h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-/* 전체 통계 요약 */
-.overview-stats {
-    margin-bottom: 40px;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.stat-item {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-    text-align: center;
-    border-left: 4px solid #667eea;
-    transition: transform 0.2s;
-}
-
-.stat-item:hover {
-    transform: translateY(-2px);
-}
-
-.stat-number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #2d3748;
-    margin-bottom: 5px;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: #718096;
-}
-
-/* 구별 현황 */
-.district-summary {
-    margin-bottom: 40px;
-}
-
-.district-summary h2 {
-    font-size: 1.8rem;
-    color: #2d3748;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.district-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.district-item {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-    border-left: 4px solid #38a169;
-}
-
-.district-item h3 {
-    font-size: 1.3rem;
-    color: #2d3748;
-    margin-bottom: 15px;
-}
-
-.district-stats div {
-    margin-bottom: 8px;
-    color: #4a5568;
-}
-
-/* 컨트롤 패널 */
-.controls {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-    margin-bottom: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-}
-
-.control-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.control-group label {
-    font-weight: 600;
-    color: #2d3748;
-}
-
-.control-group select {
-    padding: 8px 12px;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    background: white;
-    font-size: 14px;
-}
-
-.search-group {
-    margin-left: auto;
-}
-
-.search-group input {
-    padding: 8px 15px;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    font-size: 14px;
-    width: 200px;
-}
-
-.search-group input:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-/* 아파트 섹션 */
-.apartments-section h2 {
-    font-size: 1.8rem;
-    color: #2d3748;
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-.apt-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.apt-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-    border-left: 4px solid #667eea;
-}
-
-.apt-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.apt-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #2c5aa0;
-    margin-bottom: 10px;
-    line-height: 1.3;
-}
-
-.apt-info {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-}
-
-.apt-price {
-    color: #e74c3c;
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-top: 10px;
+.ranking-item.current {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%) !important;
+    border-left: 4px solid var(--primary-color) !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
 .rank {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: #667eea;
-    color: white;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important;
+    color: white !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: 800 !important;
+    margin-right: var(--space-base) !important;
+    flex-shrink: 0 !important;
+    font-size: 1.1rem !important;
+    box-shadow: var(--shadow-md) !important;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+.apartment-name {
+    flex: 1 !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    margin-right: var(--space-base) !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
 }
 
-/* 결과 없음 메시지 */
-.no-results {
-    text-align: center;
-    padding: 60px 20px;
-    color: #718096;
-    font-size: 1.1rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+.price-info {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: var(--space-sm) !important;
 }
 
-/* 푸터 */
-.main-footer {
-    text-align: center;
-    margin-top: 60px;
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
-    color: #718096;
-    font-size: 0.9rem;
-    line-height: 1.8;
+.ranking-item .price-per-sqm {
+    background: linear-gradient(135deg, var(--danger-color), #c53030) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 800 !important;
+    font-size: 1.1rem !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
 }
 
-/* 기존 상세페이지 호환성 스타일 */
-.header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 2rem;
-    border-radius: 12px;
-    margin-bottom: 30px;
+.transaction-count {
+    font-size: 0.85rem !important;
+    color: var(--text-muted) !important;
+    font-weight: 500 !important;
+    background: var(--bg-tertiary) !important;
+    padding: var(--space-xs) var(--space-sm) !important;
+    border-radius: var(--radius-sm) !important;
 }
 
-.apt-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.info-item {
-    background: rgba(255,255,255,0.1);
-    padding: 10px 15px;
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-}
-
-.info-label {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-.info-value {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-top: 5px;
-}
-
-.content-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-.card {
-    background: white;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-    border: 1px solid #e1e5e9;
-}
-
-.card-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #2d3748;
-    border-bottom: 2px solid #667eea;
-    padding-bottom: 10px;
-}
-
-.price-summary {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.price-item {
-    text-align: center;
-    padding: 15px;
-    background: #f7fafc;
-    border-radius: 8px;
-    border-left: 4px solid #667eea;
-}
-
-.price-label {
-    font-size: 0.9rem;
-    color: #718096;
-    margin-bottom: 5px;
-}
-
-.price-value {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #2d3748;
-}
-
-.price-unit {
-    font-size: 0.8rem;
-    color: #a0aec0;
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-    .content-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .apartment-title {
-        font-size: 2.2rem;
-    }
-    
-    .apartment-location {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .main-header h1 {
-        font-size: 2rem;
-    }
-    
-    .stats-grid, .stats-container {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .district-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .controls {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .search-group {
-        margin-left: 0;
-    }
-    
-    .search-group input {
-        width: 100%;
-    }
-    
-    .apt-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .trend-chart {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-    
-    .area-analysis {
-        grid-template-columns: 1fr;
-    }
-    
-    .nav-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container, .main-content {
-        padding: 10px;
-    }
-    
-    .main-header, .apartment-header {
-        padding: 20px 15px;
-    }
-    
-    .stats-grid, .stats-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .stat-item, .stat-card {
-        padding: 15px;
-    }
-    
-    .stat-number, .stat-value {
-        font-size: 1.5rem;
-    }
-    
-    .apartment-title {
-        font-size: 1.8rem;
-    }
-    
-    .apartment-location {
-        font-size: 1rem;
-    }
-    
-    .analysis-section, .trend-section, .transaction-section {
-        padding: 20px;
-    }
-}
-
-/* 시세 분석 섹션 스타일 */
-.market-analysis {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 30px;
-    margin: 30px 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e9ecef;
-}
-
-.market-analysis h2 {
-    color: #2c3e50;
-    font-size: 1.8rem;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 3px solid #667eea;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
+/* Analysis Sections */
 .analysis-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
 }
 
 .analysis-section {
-    background: #f8f9fa;
-    border-radius: 10px;
-    padding: 25px;
-    border-left: 4px solid #667eea;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
 }
 
 .analysis-section:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
-}
-
-.analysis-section h3 {
-    color: #495057;
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
 }
 
 .analysis-text {
-    color: #6c757d;
-    line-height: 1.7;
-    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 0.9375rem;
+    position: relative;
+    z-index: 1;
 }
 
 .analysis-text strong {
-    color: #2c3e50;
-    font-weight: 600;
+    color: var(--text-primary);
+    font-weight: 700;
 }
 
 .trend-detail, .level-detail, .frequency-detail, .investment-detail {
     display: block;
-    margin-top: 10px;
-    padding: 10px;
-    background: #e3f2fd;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    color: #1565c0;
-    border-left: 3px solid #2196f3;
+    margin-top: var(--space-base);
+    padding: var(--space-base);
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    color: var(--primary-color);
+    border-left: 3px solid var(--primary-color);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-    .market-analysis {
-        padding: 20px;
-        margin: 20px 0;
+/* FAQ Section */
+.faq-content {
+    margin-top: var(--space-lg);
+}
+
+.faq-item {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-base);
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition-base);
+}
+
+.faq-item:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-md);
+}
+
+.faq-item h3 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+    font-weight: 700;
+}
+
+.faq-item p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Investment Guide */
+.investment-content {
+    margin-top: var(--space-lg);
+}
+
+.investment-item {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-base);
+    border-left: 4px solid var(--success-color);
+    transition: var(--transition-base);
+}
+
+.investment-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.investment-item h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-sm);
+    font-weight: 700;
+}
+
+.investment-item p {
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+.investment-item ul {
+    color: var(--text-secondary);
+    padding-left: var(--space-base);
+    margin: 0;
+}
+
+.investment-item li {
+    margin-bottom: 5px;
+    line-height: 1.6;
+}
+
+/* Chart Section */
+.chart-container {
+    position: relative;
+    height: 400px;
+    margin-top: var(--space-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-base);
+}
+
+.chart-container canvas {
+    border-radius: var(--radius-sm);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+    align-items: center;
+    margin: var(--space-lg) 0 var(--space-sm) 0;
+}
+
+.page-link {
+    padding: var(--space-sm) var(--space-base);
+    border: 2px solid var(--primary-color);
+    background: var(--bg-primary);
+    color: var(--primary-color);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+.page-link:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.page-link.current {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    pointer-events: none;
+}
+
+.page-link.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* 31번째 카드 강조 스타일 (Detail 페이지용) */
+#apartmentGrid > article:nth-child(31) {
+    position: relative;
+    border: 2px solid var(--primary-color);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+#apartmentGrid > article:nth-child(31):hover {
+    transform: translateY(-6px);
+}
+
+#apartmentGrid > article:nth-child(31)::before {
+    content: "FEATURED";
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 0.75rem;
+    line-height: 1;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-full);
+}
+
+#apartmentGrid > article:nth-child(31) .apt-price {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* ===== Utilities ===== */
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+/* ===== Enhanced Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
-    
-    .analysis-content {
-        grid-template-columns: 1fr;
-        gap: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-primary: #f8fafc;
+        --text-secondary: #e2e8f0;
+        --text-muted: #94a3b8;
+        --text-light: #64748b;
+        
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-tertiary: #334155;
+        --bg-accent: #0c4a6e;
+        
+        --border-light: #334155;
+        --border-medium: #475569;
+        --border-dark: #64748b;
     }
-    
-    .analysis-section {
-        padding: 20px;
-    }
-    
-    .market-analysis h2 {
-        font-size: 1.5rem;
-    }
-    
-    .analysis-section h3 {
-        font-size: 1.1rem;
-    }
+}
+
+/* ===== Focus Styles ===== */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ===== Smooth Scrollbar ===== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: var(--radius-full);
+    transition: background var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--accent-color));
 }
